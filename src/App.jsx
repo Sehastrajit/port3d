@@ -380,6 +380,118 @@ function App() {
             filter: blur(0);
           }
         }
+
+        /* Updated Contact Section - Creative Neon Design */
+        #contact {
+          position: relative;
+          padding: 100px 50px;
+          margin: 100px auto;
+          max-width: 600px;
+          background: rgba(0, 0, 0, 0.8);
+          border: 2px solid transparent;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        #contact:before {
+          content: "";
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+          z-index: -1;
+          filter: blur(10px);
+          opacity: 0.7;
+          animation: neon-border 5s linear infinite;
+        }
+
+        @keyframes neon-border {
+          0% { filter: hue-rotate(0deg); }
+          100% { filter: hue-rotate(360deg); }
+        }
+
+        #contact .contact-container {
+          position: relative;
+          z-index: 1;
+          text-align: center;
+        }
+
+        #contact h2 {
+          font-size: 2.5em;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+
+        #contact p {
+          font-size: 1.1em;
+          margin-bottom: 30px;
+          line-height: 1.6;
+        }
+
+        /* Animated underline for email link */
+        #contact a {
+          color: #00ffff;
+          text-decoration: none;
+          position: relative;
+        }
+
+        #contact a:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          background-color: #00ffff;
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+        }
+
+        #contact a:hover:after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+
+        /* Neon Ripple Button Effect */
+        .contact-button {
+          background-color: transparent;
+          border: 2px solid #00ffff;
+          color: #00ffff;
+          padding: 15px 30px;
+          font-size: 1em;
+          border-radius: 50px;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          transition: color 0.3s ease;
+        }
+
+        .contact-button:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(0, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        .contact-button:hover {
+          color: #000;
+        }
+
+        .contact-button:hover:before {
+          width: 200%;
+          height: 500%;
+        }
+
       `}</style>
 
       {/* Loading Screen */}
@@ -519,19 +631,18 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section with Creative Design */}
+        {/* Contact Section with Updated Creative Design */}
         <section id="contact">
           <div className="contact-container">
             <h2>Contact</h2>
             <p>
               Let’s shape the future together. Reach out at{" "}
-              <a href="mailto:hello@example.com" style={{ color: '#00ffff' }}>
-                hello@example.com
-              </a>
+              <a href="mailto:sehastrajitjob@gmail.com">sehastrajitjob@gmail.com</a>
             </p>
             <button className="contact-button">Get in Touch</button>
           </div>
         </section>
+
       </main>
 
       {/* Footer */}
