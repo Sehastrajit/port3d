@@ -25,8 +25,8 @@ function App() {
     // Load the car GLTF model and add animations
     let loadedModel = null;
     const gltfLoader = new GLTFLoader();
-    // Ensure that your model is placed in the "public/assets/gtr2" folder
-    gltfLoader.load('/assets/gtr2/scene.gltf', (gltfScene) => {
+    // Ensure your model is in the public folder at assets/gtr2/scene.gltf
+    gltfLoader.load('./assets/gtr2/scene.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       gltfScene.scene.rotation.y = Math.PI / 8;
       gltfScene.scene.position.set(0, 3, 0);
@@ -249,6 +249,21 @@ function App() {
         .timeline-item:nth-child(even)::after {
           left: -10px;
         }
+        /* Role and Company Styling */
+        .role {
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #fff;
+        }
+        .company {
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #00ffff;
+          margin-left: 5px;
+        }
+        .date, .location, .timeline-item p {
+          font-size: 0.85em;
+        }
 
         /* Skills Section */
         .skills-section {
@@ -280,6 +295,63 @@ function App() {
         .skill-item:hover {
           transform: scale(1.05);
           box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Contact Section - New Creative Design */
+        #contact {
+          padding: 100px 50px;
+          background: #000;
+          border: 2px solid #00ffff;
+          border-radius: 15px;
+          margin: 0 auto 100px;
+          max-width: 600px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 20px #00ffff;
+        }
+        #contact::before {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(0,255,255,0.2) 0%, transparent 70%);
+          animation: neonPulse 3s infinite;
+          z-index: 0;
+        }
+        @keyframes neonPulse {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.7; }
+        }
+        #contact h2 {
+          font-size: 2.5em;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+          color: #00ffff;
+        }
+        #contact p {
+          font-size: 1em;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+        }
+        .contact-button {
+          background-color: #00ffff;
+          color: #000;
+          border: none;
+          padding: 15px 30px;
+          font-size: 1em;
+          border-radius: 50px;
+          cursor: pointer;
+          position: relative;
+          z-index: 1;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-button:hover {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #00ffff;
         }
 
         /* Footer */
@@ -396,7 +468,10 @@ function App() {
             <h2>Experience</h2>
             <div className="timeline">
               <div className="timeline-item">
-                <h3>Machine Learning Engineer @ Omdena</h3>
+                <h3>
+                  <span className="role">Machine Learning Engineer</span>
+                  <span className="company">@ Omdena</span>
+                </h3>
                 <span className="date"><strong>Jul 2024 - Oct 2024 (4 mos)</strong></span>
                 <span className="location">San Jose, CA, USA</span>
                 <p>
@@ -404,7 +479,10 @@ function App() {
                 </p>
               </div>
               <div className="timeline-item">
-                <h3>Operations Manager @ VIT</h3>
+                <h3>
+                  <span className="role">Operations Manager</span>
+                  <span className="company">@ VIT</span>
+                </h3>
                 <span className="date"><strong>Sep 2022 - Oct 2024 (2 yrs 2 mos)</strong></span>
                 <span className="location">Chennai, Tamil Nadu, India</span>
                 <p>
@@ -412,7 +490,10 @@ function App() {
                 </p>
               </div>
               <div className="timeline-item">
-                <h3>Research Assistant Intern @ VIT</h3>
+                <h3>
+                  <span className="role">Research Assistant Intern</span>
+                  <span className="company">@ VIT</span>
+                </h3>
                 <span className="date"><strong>Jun 2023 - Aug 2023 (3 mos)</strong></span>
                 <span className="location">Remote</span>
                 <p>
@@ -420,7 +501,10 @@ function App() {
                 </p>
               </div>
               <div className="timeline-item">
-                <h3>Summer Research Intern @ Auburn University</h3>
+                <h3>
+                  <span className="role">Summer Research Intern</span>
+                  <span className="company">@ Auburn University</span>
+                </h3>
                 <span className="date"><strong>Aug 2023 - Jan 2024 (6 mos)</strong></span>
                 <span className="location">Remote, Auburn, AL, USA</span>
                 <p>
@@ -428,7 +512,10 @@ function App() {
                 </p>
               </div>
               <div className="timeline-item">
-                <h3>Development Volunteer @ Larsen & Toubro</h3>
+                <h3>
+                  <span className="role">Development Volunteer</span>
+                  <span className="company">@ Larsen & Toubro</span>
+                </h3>
                 <span className="date"><strong>Jan 2022 - Dec 2023 (2 yrs)</strong></span>
                 <span className="location">Chennai, Tamil Nadu, India</span>
                 <p>
@@ -458,13 +545,14 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* Contact Section - New Creative Design */}
         <section id="contact">
-          <div>
+          <div className="contact-container">
             <h2>Contact</h2>
             <p>
-              Let’s shape the future together. Reach out at <a href="mailto:sehastrajitjob@gmail.com" style={{ color: '#00ffff' }}>sehastrajitjob@gmailcom</a>.
+              Let's shape the future together! Whether you have a project idea or just want to say hello, I'm all ears.
             </p>
+            <button className="contact-button">Get in Touch</button>
           </div>
         </section>
       </main>
