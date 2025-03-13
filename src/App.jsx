@@ -462,7 +462,7 @@ function App() {
           <div>
             <h2>Contact</h2>
             <p>
-              Let’s shape the future together. Reach out at <a href="mailto:hello@example.com" style={{ color: '#00ffff' }}>hello@example.com</a>.
+              Let’s shape the future together. Reach out at <a href="mailto:sehastrajitjob@gmail.com" style={{ color: '#00ffff' }}>sehastrajitjob@gmailcom</a>.
             </p>
           </div>
         </section>
