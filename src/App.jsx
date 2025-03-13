@@ -26,7 +26,7 @@ function App() {
     let loadedModel = null;
     const gltfLoader = new GLTFLoader();
     // Ensure that your model is placed in the "public/assets/gtr2" folder
-    gltfLoader.load('./assets/gtr2/scene.gltf', (gltfScene) => {
+    gltfLoader.load('/assets/gtr2/scene.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       gltfScene.scene.rotation.y = Math.PI / 8;
       gltfScene.scene.position.set(0, 3, 0);
