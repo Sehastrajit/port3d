@@ -25,7 +25,6 @@ function App() {
     // Load the car GLTF model and add animations
     let loadedModel = null;
     const gltfLoader = new GLTFLoader();
-    // Ensure your model is in the public folder at assets/gtr2/scene.gltf
     gltfLoader.load('./assets/gtr2/scene.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       gltfScene.scene.rotation.y = Math.PI / 8;
@@ -297,45 +296,22 @@ function App() {
           box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
         }
 
-        /* Contact Section - New Creative Design */
+        /* Contact Section - Creative Design */
         #contact {
           padding: 100px 50px;
-          background: #000;
-          border: 2px solid #00ffff;
-          border-radius: 15px;
+          background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+          border-radius: 10px;
           margin: 0 auto 100px;
           max-width: 600px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 0 20px #00ffff;
-        }
-        #contact::before {
-          content: "";
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(0,255,255,0.2) 0%, transparent 70%);
-          animation: neonPulse 3s infinite;
-          z-index: 0;
-        }
-        @keyframes neonPulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.7; }
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
         }
         #contact h2 {
           font-size: 2.5em;
           margin-bottom: 20px;
-          position: relative;
-          z-index: 1;
-          color: #00ffff;
         }
         #contact p {
           font-size: 1em;
           margin-bottom: 20px;
-          position: relative;
-          z-index: 1;
         }
         .contact-button {
           background-color: #00ffff;
@@ -345,13 +321,11 @@ function App() {
           font-size: 1em;
           border-radius: 50px;
           cursor: pointer;
-          position: relative;
-          z-index: 1;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .contact-button:hover {
           transform: scale(1.1);
-          box-shadow: 0 0 15px #00ffff;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
         }
 
         /* Footer */
@@ -545,12 +519,15 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section - New Creative Design */}
+        {/* Contact Section with Creative Design */}
         <section id="contact">
           <div className="contact-container">
             <h2>Contact</h2>
             <p>
-              Let's shape the future together! Whether you have a project idea or just want to say hello, I'm all ears.
+              Let’s shape the future together. Reach out at{" "}
+              <a href="mailto:hello@example.com" style={{ color: '#00ffff' }}>
+                hello@example.com
+              </a>
             </p>
             <button className="contact-button">Get in Touch</button>
           </div>

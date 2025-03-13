@@ -7,11 +7,15 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
   ],
-
   "dependencies": {
     "gsap": "^3.12.7",
     "react": "^17.0.2",
