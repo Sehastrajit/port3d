@@ -84,6 +84,25 @@ function App() {
       );
     });
 
+    // Animate skill cards as they scroll into view
+    gsap.utils.toArray('.skill-item').forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, y: 50 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1, 
+          delay: index * 0.1, 
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
     // Remove the loading screen after a delay
     const timer = setTimeout(() => {
       setLoading(false);
@@ -230,6 +249,38 @@ function App() {
           left: -10px;
         }
 
+        /* Skills Section */
+        .skills-section {
+          padding: 100px 50px;
+          text-align: center;
+        }
+        .skills-section h2 {
+          font-size: 3em;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 40px;
+        }
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .skill-item {
+          background: rgba(0, 0, 0, 0.5);
+          border: 2px solid #00ffff;
+          padding: 20px;
+          border-radius: 10px;
+          text-transform: uppercase;
+          font-weight: bold;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-item:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+        }
+
         /* Footer */
         footer {
           text-align: center;
@@ -304,6 +355,7 @@ function App() {
           <a onClick={() => document.getElementById('welcome').scrollIntoView({ behavior: 'smooth' })}>Home</a>
           <a onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About</a>
           <a onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}>Experience</a>
+          <a onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}>Skills</a>
           <a onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</a>
         </nav>
       </header>
@@ -340,7 +392,7 @@ function App() {
         {/* Experience Timeline Section */}
         <section id="experience">
           <div>
-            <h2>Experience & Skills</h2>
+            <h2>Experience</h2>
             <div className="timeline">
               <div className="timeline-item">
                 <h3>Machine Learning Engineer @ Omdena</h3>
@@ -383,12 +435,25 @@ function App() {
                 </p>
               </div>
             </div>
-            <div style={{ marginTop: '40px' }}>
-              <h2>Skills</h2>
-              <p>
-                Data Science, Machine Learning, Predictive Modeling, Data Visualization, Data Preparation, GCP, Azure, Python, Research, Operations Management, Leadership, Interpersonal Skills.
-              </p>
-            </div>
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section id="skills" className="skills-section">
+          <h2>Skills</h2>
+          <div className="skills-grid">
+            <div className="skill-item">Data Science</div>
+            <div className="skill-item">Machine Learning</div>
+            <div className="skill-item">Predictive Modeling</div>
+            <div className="skill-item">Data Visualization</div>
+            <div className="skill-item">Data Preparation</div>
+            <div className="skill-item">GCP</div>
+            <div className="skill-item">Azure</div>
+            <div className="skill-item">Python</div>
+            <div className="skill-item">Research</div>
+            <div className="skill-item">Ops Management</div>
+            <div className="skill-item">Leadership</div>
+            <div className="skill-item">Interpersonal Skills</div>
           </div>
         </section>
 
@@ -397,7 +462,7 @@ function App() {
           <div>
             <h2>Contact</h2>
             <p>
-              Let’s shape the future together. Reach out at <a href="mailto:hello@example.com" style={{ color: '#00ffff' }}>sehastrajitjob@gmail..com</a>.
+              Let’s shape the future together. Reach out at <a href="mailto:hello@example.com" style={{ color: '#00ffff' }}>hello@example.com</a>.
             </p>
           </div>
         </section>
